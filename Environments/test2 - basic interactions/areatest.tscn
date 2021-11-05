@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 302, 256 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Area2D
+
+
+func _ready():
+	pass
+
+
+func _on_Area2_area_entered(area):
+	print(name, ' -> ', area.name)
+"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area1" type="Area2D" parent="."]
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+shape = SubResource( 1 )
+
+[node name="Area2" type="Area2D" parent="."]
+position = Vector2( 402, 339 )
+collision_mask = 2
+script = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
+shape = SubResource( 1 )
+[connection signal="area_entered" from="Area2" to="Area2" method="_on_Area2_area_entered"]

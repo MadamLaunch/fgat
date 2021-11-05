@@ -1,0 +1,35 @@
+
+
+
+func _get(property : String):
+	match property:
+		'movement_mode': return movement_mode
+		'movement_player': return movement_player
+		'strikes_mode': return strikes_mode
+		'strikes_player': return strikes_player
+		'strikes_suffix': return strikes_suffix
+		'throws_mode': return throws_mode
+		'throws_player': return throws_player
+		'throws_suffix': return throws_suffix
+		'guards_mode': return guards_mode
+		'guards_player': return guards_player
+		'guards_suffix': return guards_suffix
+		'reactions_player': return reactions_player
+		'reactions_countdown': return reactions_countdown
+
+
+func _set(property : String, value):
+	match property:
+		'movement_mode': movement_mode = value
+		'movement_player': movement_player = value
+		'strikes_mode': strikes_mode = value
+		'strikes_player': strikes_player = value
+		'strikes_suffix': strikes_suffix = value
+		'throws_mode': throws_mode = value
+		'throws_player': throws_player = value
+		'throws_suffix': throws_suffix = value
+		'guards_mode': guards_mode = value
+		'guards_player': guards_player = value
+		'guards_suffix': guards_suffix = value
+		'reactions_player': reactions_player = value
+		'reactions_countdown': reactions_countdown = value

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fighter2D/Hitbox2D.gd" type="Script" id=1]
+[ext_resource path="res://Fighter2D/HitboxRectangle.tscn" type="PackedScene" id=2]
+
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 100 )
+
+[node name="AreaTest" type="Node2D"]
+
+[node name="Area1" type="Area2D" parent="."]
+position = Vector2( 494.975, 608.112 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+hitbox_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1"]
+shape = SubResource( 2 )
+
+[node name="Area2" type="Area2D" parent="."]
+position = Vector2( 936.209, 511.945 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+hitbox_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2"]
+shape = SubResource( 2 )
+
+[node name="HitboxRectangle1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 523.858, 913.078 )
+hitbox_type = 1
+
+[node name="HitboxRectangle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1312.99, 969.647 )
+hitbox_type = 2
+[connection signal="area_entered" from="Area1" to="Area1" method="_on_area_entered"]
+[connection signal="win_collision" from="Area1" to="Area1" method="_on_win_collision"]
+[connection signal="area_entered" from="Area2" to="Area2" method="_on_area_entered"]
+[connection signal="win_collision" from="Area2" to="Area2" method="_on_win_collision"]

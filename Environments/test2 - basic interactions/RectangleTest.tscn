@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scraps/FighterRectangle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://box-throw.png" type="Texture" id=2]
+[ext_resource path="res://box-strike.png" type="Texture" id=3]
+[ext_resource path="res://box-guard.png" type="Texture" id=4]
+
+
+[node name="RectangleTest" type="Node2D"]
+
+[node name="Fighter1" type="Node2D" parent="."]
+position = Vector2( 815, 359 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Fighter2" type="Node2D" parent="."]
+position = Vector2( 902, 433 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Fighter3" type="Node2D" parent="."]
+position = Vector2( 902, 433 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Strike" parent="." instance=ExtResource( 1 )]
+position = Vector2( 204, 240 )
+fighter_node = NodePath("../Fighter1")
+texture = ExtResource( 3 )
+active_type = 1
+extents = Vector2( 50, 50 )
+test_movement = Vector2( 80, 0 )
+
+[node name="Throw" parent="." instance=ExtResource( 1 )]
+position = Vector2( 339, 238 )
+fighter_node = NodePath("../Fighter2")
+texture = ExtResource( 2 )
+active_type = 2
+extents = Vector2( 50, 50 )
+
+[node name="Guard" parent="." instance=ExtResource( 1 )]
+position = Vector2( 553, 233 )
+fighter_node = NodePath("../Fighter3")
+texture = ExtResource( 4 )
+active_type = 3
+extents = Vector2( 50, 50 )

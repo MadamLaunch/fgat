@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fighter2D/HitboxFighter2D.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 75, 2540 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 75, 2540 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1110, 75 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1110, 75 )
+
+[node name="test3" type="Node2D"]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Left" type="CollisionShape2D" parent="Walls"]
+position = Vector2( -75, -1460 )
+shape = SubResource( 1 )
+
+[node name="Right" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 1995, -1460 )
+shape = SubResource( 2 )
+
+[node name="Bottom" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 960, 1155 )
+shape = SubResource( 3 )
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Top" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2( 960, -75 )
+shape = SubResource( 4 )
+
+[node name="HitboxFighter2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 960, 540 )
+state_index = NodePath("../../test3/HitboxFighter2D/StateIndex")
+hinge_node = NodePath("../../test3/HitboxFighter2D/Pivot/Hinge")
+pivot_node = NodePath("../../test3/HitboxFighter2D/Pivot")

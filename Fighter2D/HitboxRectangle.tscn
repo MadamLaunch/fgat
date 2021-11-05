@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fighter2D/Hitbox2D_Rectangle.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0, 0 )
+
+[node name="HitboxRectangle" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+win_effect_out_animator = NodePath("")
+win_effect_out_action = ""
+win_effect_out_attach_fighter = false
+win_effect_out_type = 0
+win_effect_out_induce_countdown = false
+win_effect_out_countdown = 0
+win_effect_out_apply_velocity = false
+win_effect_out_velocity = Vector2( 0, 0 )
+win_effect_local_animator = NodePath("")
+win_effect_local_action = ""
+win_effect_local_type = 0
+win_effect_local_induce_countdown = false
+win_effect_local_countdown = 0
+win_effect_local_apply_velocity = false
+win_effect_local_velocity = Vector2( 0, 0 )
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Flip" type="Node2D" parent="."]
+
+[node name="Graphic" type="NinePatchRect" parent="Flip"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="win_collision" from="." to="." method="win_collision"]
